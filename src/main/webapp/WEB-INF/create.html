@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Chung Cake</title>
+</head>
+<body>
+<h1>Create Chung Cake</h1>
+<form th:action="@{/chungCakes/create}" method="post" th:object="chungCake">
+    <input type="number" required th:field="*{ids}">
+    <br>
+    <input type="text" required th:field="*{name}">
+    <br>
+    <input type="number" required th:field="*{type}">
+    <br>
+    <input type="text" required th:field="*{price}">
+    <br>
+    <input type="text" required th:field="*{status}">
+    <br>
+    <select th:field="*{status}">
+        <option th:value="true">True</option>
+        <option th:value="false">False</option>
+    </select>
+    <br>
+    <button type="submit">Create Chung Cake</button>
+</form>
+</body>
+</html>

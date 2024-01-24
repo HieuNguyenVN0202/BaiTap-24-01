@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>List Bánh Chưng</h1>
+<button><a th:href="@{/chungCakes/add-chungCake}">Create New Chung Cake</a></button>
+<table border="1px">
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Type</td>
+        <td>Price</td>
+        <td>Status</td>
+    </tr>
+    <tr th:each="chungCake, state : ${chungCakeLists}">
+        <td th:each="${state.count}"></td>
+        <td th:each="${chungCake.name}"></td>
+        <td th:each="${chungCake.type}"></td>
+        <td th:each="${chungCake.price}"></td>
+        <td th:each="${chungCake.isStatus()}"></td>
+        <td>
+            <button><a th:href="@{'/chungCakes/edit/' + ${chungCake.id}}"></a></button>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
